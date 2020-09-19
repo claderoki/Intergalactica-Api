@@ -43,10 +43,15 @@ def poll():
     id = int(request.args.get("id"))
     return json.dumps({"id" : id})
 
+# @app.route("/poll/")
+
 
 @app.route("/poll/save", methods = ["POST"])
 def poll_save():
     post = json.loads(request.data)
+    key = post["key"]
+
+    
 
     new = not bool(post["id"])
 
