@@ -1,6 +1,4 @@
 peewee
 flask
 requests
-emoji
-python-dateutil
 pymysql
