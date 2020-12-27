@@ -1,11 +1,13 @@
 import json
 
 from flask import Flask, request
+from waitress import serve
 
 import src.config as config
 from src.models import Location, database
 
 app = Flask(__name__)
+config.app = app
 
 @app.route("/location/save", methods = ["POST"])
 def location_save():
@@ -15,4 +17,4 @@ def location_save():
 
     return {"success" : True, "id" : location.id}
 
-app.run()
+serve(app, host = '0.0.0.0')
